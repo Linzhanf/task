@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        maven {
+            allowInsecureProtocol = true
+            url "http://120.79.114.94:9081/repository/android-public/"
+        }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        maven {
+            allowInsecureProtocol = true
+            url "http://120.79.114.94:9081/repository/android-public/"
+        }
+    }
+}
+rootProject.name = "Task"
+include ':app'
