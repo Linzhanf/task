@@ -108,10 +108,7 @@ class MyWorker(context: Context, workerParams: WorkerParameters) : Worker(contex
 
     override fun doWork(): Result {
         val int = inputData.getInt(KEY_INT_ARG, 0)
-        Log.i(
-            MyWorker::class.simpleName,
-            "TestWork: int:$int"
-        )
+        Log.i(MyWorker::class.simpleName, "TestWork: int:$int")
         val result = Data.Builder().putInt(KEY_RESULT, int).build()
         return Result.success(result)
     }
