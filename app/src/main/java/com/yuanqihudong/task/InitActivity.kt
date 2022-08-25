@@ -31,7 +31,10 @@ class InitActivity : AppCompatActivity() {
         CustomMessage(MusicServiceActivity::class.simpleName, MusicServiceActivity::class),
         CustomMessage(ContentProviderActivity::class.simpleName, ContentProviderActivity::class),
         CustomMessage(ActiveActivity::class.simpleName, ActiveActivity::class),
-        CustomMessage(FragmentationActivity::class.simpleName, FragmentationActivity::class)
+        CustomMessage(FragmentationActivity::class.simpleName, FragmentationActivity::class),
+        CustomMessage(NewsActivity::class.simpleName, NewsActivity::class),
+        CustomMessage(NetActivity::class.simpleName, NetActivity::class)
+
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

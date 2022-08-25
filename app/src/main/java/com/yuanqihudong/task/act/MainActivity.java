@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
             //remote(editText.getText().toString(), imageView);
             local(imageView);
         });
-
     }
 
     private void remote(String urlStr, SVGAImageView imageView) {

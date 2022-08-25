@@ -50,4 +50,45 @@ class ComposeActivity : AppCompatActivity() {
             }
         }
     }
+
+    /*@Preview
+    @Composable
+    private fun Greet() {
+        val padding = 16.dp
+        Column(
+            Modifier
+                .clickable { }
+                .padding(padding)
+                .fillMaxWidth()) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                AsyncImage(
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data("http://pic.hnchumeng.com/FibbCXj56_PWb_bgBfCmu-EeyNL5?imageslim")
+                        .size(Size.ORIGINAL)
+                        .crossfade(true)
+                        .build(),
+                    modifier = Modifier.size(50.dp, 50.dp),
+                    placeholder = painterResource(id = R.mipmap.ic_launcher),
+                    contentDescription = "描述"
+                )
+                Column {
+                    Text("伊布")
+                    Text("16 age")
+                }
+            }
+            Card(elevation = 4.dp) {
+                AsyncImage(
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data("https://img-blog.csdnimg.cn/20210124002108308.png")
+                        .size(Size.ORIGINAL)
+                        .build(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight(),
+                    placeholder = painterResource(id = R.mipmap.ic_launcher),
+                    contentDescription = "描述"
+                )
+            }
+        }
+    }*/
 }
