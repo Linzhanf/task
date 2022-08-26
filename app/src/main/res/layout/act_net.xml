@@ -6,10 +6,22 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/retrofit"
+        android:id="@+id/retrofit_async"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="retrofit" />
+        android:text="retrofit async" />
+
+    <Button
+        android:id="@+id/retrofit_sync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="retrofit sync" />
+
+    <Button
+        android:id="@+id/retrofit_suspend_async"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="retrofit suspend async" />
 
     <TextView
         android:id="@+id/text"

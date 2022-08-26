@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import androidx.core.content.ContextCompat
 import com.yuanqihudong.task.R
-import com.yuanqihudong.task.utils.DisplayUtils
+import com.yuanqihudong.task.utils.ToolsUtils
 
 class CircleView : View {
 
@@ -61,8 +61,8 @@ class CircleView : View {
         // 设置wrap_content的默认宽 / 高值
         // 默认宽/高的设定并无固定依据,根据需要灵活设置
         // 类似TextView,ImageView等针对wrap_content均在onMeasure()对设置默认宽 / 高值有特殊处理,具体读者可以自行查看
-        val width = DisplayUtils.screenWidth(context) / 2
-        val height = DisplayUtils.screenHeight(context) / 2
+        val width = ToolsUtils.screenWidth(context) / 2
+        val height = ToolsUtils.screenHeight(context) / 2
 
         if (layoutParams.width == WRAP_CONTENT && layoutParams.height == WRAP_CONTENT) {
             setMeasuredDimension(width, height)
