@@ -93,4 +93,10 @@ dependencies {
     api 'com.dreamliner.lib:ImagePicker:1.0.0'
 
     debugApi 'com.squareup.leakcanary:leakcanary-android:2.9.1'
+
+    api 'com.geyifeng.immersionbar:immersionbar:3.2.2'
+    api 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'
+
+    api "com.github.codyer.ElegantBus:core:2.0.0"
+    annotationProcessor "com.github.codyer.ElegantBus:compiler:2.0.0"
 }

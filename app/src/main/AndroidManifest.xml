@@ -35,7 +35,8 @@
             android:name=".act.ComposeActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".act.MainActivity"
+            android:name=".act.SVGAActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:launchMode="singleInstancePerTask" />
         <activity
             android:name=".act.CustomViewActivity"
@@ -55,6 +56,7 @@
         <activity android:name=".act.FragmentationActivity" />
         <activity android:name=".act.NewsActivity" />
         <activity android:name=".act.NetActivity" />
+        <activity android:name=".act.SecondActivity" />
 
         <receiver
             android:name=".broadcast.StaticsBroadcastReceiver"

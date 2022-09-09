@@ -3,6 +3,7 @@ package com.yuanqihudong.task.act
 import android.content.ComponentName
 import android.content.Intent
 import android.os.Bundle
+import android.os.CountDownTimer
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
@@ -17,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.yuanqihudong.task.R
 
 class ActiveActivity : AppCompatActivity() {
 
@@ -27,6 +29,17 @@ class ActiveActivity : AppCompatActivity() {
             Greeting()
         }
     }
+
+    var totalTime = 2 * 60 * 60L
+
+    var countDownTimer: CountDownTimer = object : CountDownTimer(totalTime, 1000) {
+        override fun onTick(millisUntilFinished: Long) {
+
+        }
+
+        override fun onFinish() {
+        }
+    }.start()
 
     @Preview
     @Composable
@@ -40,7 +53,7 @@ class ActiveActivity : AppCompatActivity() {
                 val intent = with(Intent()) {
                     setClassName(
                         "com.yuanqihudong.task.act",
-                        "com.yuanqihudong.task.act.ComposeActivity"
+                        "com.yuanqihudong.task.act.PickerActivity"
                     )
                     this
                 }
@@ -50,7 +63,7 @@ class ActiveActivity : AppCompatActivity() {
                 val intent = Intent().apply {
                     setClassName(
                         this@ActiveActivity,
-                        "com.yuanqihudong.task.act.MainActivity"
+                        "com.yuanqihudong.task.act.PickerActivity"
                     )
                 }
                 startActivity(intent)
@@ -59,7 +72,7 @@ class ActiveActivity : AppCompatActivity() {
                 val intent = Intent().apply {
                     component = ComponentName(
                         "com.yuanqihudong.task.act",
-                        "com.yuanqihudong.task.act.CustomViewActivity"
+                        "com.yuanqihudong.task.act.PickerActivity"
                     )
                 }
                 startActivity(intent)

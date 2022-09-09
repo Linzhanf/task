@@ -41,17 +41,15 @@ class NetActivity : AppCompatActivity() {
 
     private fun suspendAsync() {
         lifecycleScope.launchWhenResumed {
-            async {
-                kotlin.runCatching {
-                    mLoadingDialog?.show()
-                    TaskClient.getService(Urls::class.java).getArticleSuspendRetrofit()
-                }.onFailure {
-                    mLoadingDialog?.dismiss()
-                    mBinding.text.text = it.message
-                }.onSuccess {
-                    mLoadingDialog?.dismiss()
-                    mBinding.text.text = it.toString()
-                }
+            kotlin.runCatching {
+                mLoadingDialog?.show()
+                TaskClient.getService(Urls::class.java).getArticleSuspendRetrofit()
+            }.onFailure {
+                mLoadingDialog?.dismiss()
+                mBinding.text.text = it.message
+            }.onSuccess {
+                mLoadingDialog?.dismiss()
+                mBinding.text.text = it.toString()
             }
         }
     }

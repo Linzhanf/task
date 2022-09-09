@@ -7,15 +7,18 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import cody.bus.ElegantBus
 import com.yuanqihudong.task.databinding.ActNewsBinding
 import com.yuanqihudong.task.viewmodel.AllIntent
 import com.yuanqihudong.task.viewmodel.NewsViewModel
 import com.yuanqihudong.task.viewmodel.TaskState
 import kotlinx.coroutines.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import kotlin.coroutines.CoroutineContext
 
 
-class NewsActivity : AppCompatActivity() {
+class SecondActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActNewsBinding
     private val mViewModel: NewsViewModel by viewModels()
@@ -26,28 +29,7 @@ class NewsActivity : AppCompatActivity() {
         setContentView(mBinding.root)
         mBinding.text.movementMethod = ScrollingMovementMethod.getInstance()
         mBinding.loadBtn.setOnClickListener {
-            doLaunch {
-                mViewModel.allIntent.send(AllIntent.GetArticle)
-            }
-        }
 
-        lifecycleScope.launch(context = Dispatchers.Main) {
-            mViewModel.state.collect {
-                when (it) {
-                    is TaskState.BeforeLoad -> mBinding.text addText "before load"
-                    is TaskState.DoLoad -> mBinding.text addText "do load"
-                    is TaskState.GetArticle -> mBinding.text addText it.content
-                    is TaskState.AfterLoad -> mBinding.text addText "after load"
-                    is TaskState.ErrorData -> mBinding.text addText it.msg
-                }
-            }
-        }
-        ElegantBus.getDefault("Event1").post("123")
-    }
-
-    private fun doLaunch(method: suspend CoroutineScope.() -> Unit) {
-        GlobalScope.launch {
-            method.invoke(this)
         }
     }
 

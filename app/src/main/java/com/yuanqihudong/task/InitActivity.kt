@@ -6,10 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,15 +18,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import cody.bus.ElegantBus
+import cody.bus.ObserverWrapper
 import com.yuanqihudong.task.act.*
 import com.yuanqihudong.task.bean.CustomMessage
+
 
 class InitActivity : AppCompatActivity() {
 
     private val list = listOf(
         CustomMessage(ComposeActivity::class.simpleName, ComposeActivity::class),
         CustomMessage(CustomViewActivity::class.simpleName, CustomViewActivity::class),
-        CustomMessage(MainActivity::class.simpleName, MainActivity::class),
+        CustomMessage(SVGAActivity::class.simpleName, SVGAActivity::class),
         CustomMessage(PickerActivity::class.simpleName, PickerActivity::class),
         CustomMessage(BroadcastActivity::class.simpleName, BroadcastActivity::class),
         CustomMessage(MusicServiceActivity::class.simpleName, MusicServiceActivity::class),
@@ -42,6 +46,12 @@ class InitActivity : AppCompatActivity() {
         setContent {
             Greet()
         }
+        ElegantBus.getDefault("EventA", String::class.java).observe(this, object : ObserverWrapper<String>() {
+
+            override fun onChanged(value: String?) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 
     @Preview
@@ -55,7 +65,7 @@ class InitActivity : AppCompatActivity() {
                 Text(
                     list[index].name ?: "",
                     textAlign = TextAlign.Center,
-                    color = MaterialTheme.colors.background,
+                    color = Color.Black,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(10.dp)
