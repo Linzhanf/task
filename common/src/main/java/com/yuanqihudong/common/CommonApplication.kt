@@ -1,16 +1,16 @@
-package com.yuanqihudong.task
+package com.yuanqihudong.common
 
 import android.app.Application
 import android.content.Context
 import coil.ImageLoader
 import coil.ImageLoaderFactory
-import coil.util.CoilUtils
+import com.jeremyliao.liveeventbus.LiveEventBus
 import com.yuanqihudong.task.glide.UnsafeOkHttpClient
-import okhttp3.OkHttpClient
 
-class CommonApplication : Application(), ImageLoaderFactory {
+open class CommonApplication : Application(), ImageLoaderFactory {
 
     companion object {
+        @JvmStatic
         var context: Context? = null
     }
 

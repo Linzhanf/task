@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
 import com.yuanqihudong.task.broadcast.StaticsBroadcastReceiver
-import kotlin.concurrent.thread
 
 class BroadcastActivity : AppCompatActivity() {
 

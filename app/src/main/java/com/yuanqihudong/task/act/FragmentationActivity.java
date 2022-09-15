@@ -2,7 +2,6 @@ package com.yuanqihudong.task.act;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 
 import androidx.annotation.Nullable;
 
@@ -22,9 +21,7 @@ public class FragmentationActivity extends BaseCompatActivity {
     @Override
     protected void initViews(@Nullable Bundle savedInstanceState) {
         loadRootFragment(R.id.main_fl, FragmentationFragment.newInstance());
-        mHandler = new Handler(Looper.getMainLooper());
-        mHandler.postDelayed(() -> showToast(FragmentationActivity.class.getSimpleName()), 2000);
+//        mHandler = new Handler(Looper.getMainLooper());
+//        mHandler.postDelayed(() -> showToast(FragmentationActivity.class.getSimpleName()), 2000);
     }
-
-
 }

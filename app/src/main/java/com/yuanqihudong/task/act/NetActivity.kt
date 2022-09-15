@@ -11,7 +11,6 @@ import com.yuanqihudong.task.net.TaskClient
 import com.yuanqihudong.task.net.Urls
 import com.yuanqihudong.task.utils.ToolsUtils
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Call

@@ -5,7 +5,7 @@ import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
-import com.yuanqihudong.task.CommonApplication;
+import com.yuanqihudong.common.CommonApplication;
 
 import java.lang.reflect.Field;
 
@@ -65,14 +65,14 @@ public class ScreenUtil {
 
     public static int getDisplayWidth() {
         if (screenWidth == 0) {
-            GetInfo(CommonApplication.Companion.getContext());
+            GetInfo(CommonApplication.getContext());
         }
         return screenWidth;
     }
 
     public static int getDisplayHeight() {
         if (screenHeight == 0) {
-            GetInfo(CommonApplication.Companion.getContext());
+            GetInfo(CommonApplication.getContext());
         }
         return screenHeight;
     }

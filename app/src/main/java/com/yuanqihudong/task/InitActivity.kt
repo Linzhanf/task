@@ -2,6 +2,7 @@ package com.yuanqihudong.task
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
@@ -18,8 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import cody.bus.ElegantBus
-import cody.bus.ObserverWrapper
+import com.jeremyliao.liveeventbus.LiveEventBus
 import com.yuanqihudong.task.act.*
 import com.yuanqihudong.task.bean.CustomMessage
 
@@ -46,12 +46,6 @@ class InitActivity : AppCompatActivity() {
         setContent {
             Greet()
         }
-        ElegantBus.getDefault("EventA", String::class.java).observe(this, object : ObserverWrapper<String>() {
-
-            override fun onChanged(value: String?) {
-                TODO("Not yet implemented")
-            }
-        })
     }
 
     @Preview

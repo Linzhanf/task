@@ -1,19 +1,17 @@
 package com.yuanqihudong.task.fra
 
-import android.content.pm.ProviderInfo
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import coil.ImageLoader
+import android.widget.Toast
+import androidx.lifecycle.Observer
 import coil.load
-import com.bumptech.glide.Glide
 import com.dreamliner.lib.frame.base.BaseCompatFragment
+import com.jeremyliao.liveeventbus.LiveEventBus
 import com.yuanqihudong.task.R
 import com.yuanqihudong.task.databinding.FraFragmentationBinding
-import com.yuanqihudong.task.glide.UnsafeOkHttpClient
-import okhttp3.OkHttpClient
-import java.security.cert.Certificate
 
 class FragmentationFragment : BaseCompatFragment() {
 

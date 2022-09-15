@@ -21,9 +21,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import com.yuanqihudong.task.contentprovider.DBHelper
 import com.yuanqihudong.task.viewmodel.ContentProviderViewModel
 import java.lang.StringBuilder
 

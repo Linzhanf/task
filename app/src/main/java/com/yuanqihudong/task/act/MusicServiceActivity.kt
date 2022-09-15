@@ -22,10 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.work.*
-import com.google.gson.Gson
-import com.yuanqihudong.task.bean.CustomMessage
 import com.yuanqihudong.task.service.*
-import kotlinx.coroutines.delay
 
 class MusicServiceActivity : AppCompatActivity() {
 

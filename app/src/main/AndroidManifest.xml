@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
     <application
-        android:name=".CommonApplication"
+        android:name="com.yuanqihudong.task.AppApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -21,7 +21,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".InitActivity"
+            android:name="com.yuanqihudong.task.InitActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,20 +29,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".act.PickerActivity"
+            android:name="com.yuanqihudong.task.act.PickerActivity"
             android:launchMode="singleTop" />
         <activity
-            android:name=".act.ComposeActivity"
+            android:name="com.yuanqihudong.task.act.ComposeActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".act.SVGAActivity"
+            android:name="com.yuanqihudong.task.act.SVGAActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:launchMode="singleInstancePerTask" />
         <activity
-            android:name=".act.CustomViewActivity"
+            android:name="com.yuanqihudong.task.act.CustomViewActivity"
             android:launchMode="singleInstance" />
         <activity
-            android:name=".act.BroadcastActivity"
+            android:name="com.yuanqihudong.task.act.BroadcastActivity"
             android:exported="true"
             android:launchMode="standard">
             <intent-filter>
@@ -50,23 +50,23 @@
                 <action android:name="com.yuanqihudong.task.action.broad" />
             </intent-filter>
         </activity>
-        <activity android:name=".act.MusicServiceActivity" />
-        <activity android:name=".act.ContentProviderActivity" />
-        <activity android:name=".act.ActiveActivity" />
-        <activity android:name=".act.FragmentationActivity" />
-        <activity android:name=".act.NewsActivity" />
-        <activity android:name=".act.NetActivity" />
-        <activity android:name=".act.SecondActivity" />
+        <activity android:name="com.yuanqihudong.task.act.MusicServiceActivity" />
+        <activity android:name="com.yuanqihudong.task.act.ContentProviderActivity" />
+        <activity android:name="com.yuanqihudong.task.act.ActiveActivity" />
+        <activity android:name="com.yuanqihudong.task.act.FragmentationActivity" />
+        <activity android:name="com.yuanqihudong.task.act.NewsActivity" />
+        <activity android:name="com.yuanqihudong.task.act.NetActivity" />
+        <activity android:name="com.yuanqihudong.task.act.SecondActivity" />
 
         <receiver
-            android:name=".broadcast.StaticsBroadcastReceiver"
+            android:name="com.yuanqihudong.task.broadcast.StaticsBroadcastReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.StaticsBroadcastReceiver" />
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".broadcast.SMSBroadcastReceiver"
+            android:name="com.yuanqihudong.task.broadcast.SMSBroadcastReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
@@ -74,18 +74,18 @@
         </receiver>
 
         <service
-            android:name=".service.MusicService"
+            android:name="com.yuanqihudong.task.service.MusicService"
             android:exported="true" />
 
         <service
-            android:name=".service.MusicBindService"
+            android:name="com.yuanqihudong.task.service.MusicBindService"
             android:exported="true" />
-        <service android:name=".service.MyIntentService" />
+        <service android:name="com.yuanqihudong.task.service.MyIntentService" />
         <service
-            android:name=".service.MyJobIntentService"
+            android:name="com.yuanqihudong.task.service.MyJobIntentService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <service
-            android:name=".service.MyJobService"
+            android:name="com.yuanqihudong.task.service.MyJobService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <!--// 声明本应用 可允许通信的权限
@@ -103,7 +103,7 @@
         // 设置此provider是否可以被其他进程使用
         android:exported="true"-->
         <provider
-            android:name=".contentprovider.DatabaseProvider"
+            android:name="com.yuanqihudong.task.contentprovider.DatabaseProvider"
             android:authorities="cn.scu.myprovider" />
 
 

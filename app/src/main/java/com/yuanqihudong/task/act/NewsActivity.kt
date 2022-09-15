@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import cody.bus.ElegantBus
 import com.yuanqihudong.task.databinding.ActNewsBinding
 import com.yuanqihudong.task.viewmodel.AllIntent
 import com.yuanqihudong.task.viewmodel.NewsViewModel
@@ -42,7 +41,6 @@ class NewsActivity : AppCompatActivity() {
                 }
             }
         }
-        ElegantBus.getDefault("Event1").post("123")
     }
 
     private fun doLaunch(method: suspend CoroutineScope.() -> Unit) {

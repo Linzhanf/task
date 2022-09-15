@@ -11,8 +11,8 @@ import com.lzy.imagepicker.ImagePicker
 import com.lzy.imagepicker.bean.ImageItem
 import com.lzy.imagepicker.ui.ImageGridActivity
 import com.lzy.imagepicker.view.CropImageView
+import com.yuanqihudong.common.glide.GlideImageLoader
 import com.yuanqihudong.task.databinding.LayoutPickerBinding
-import com.yuanqihudong.task.glide.GlideImageLoader
 
 
 class PickerActivity : AppCompatActivity() {

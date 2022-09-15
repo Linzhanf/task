@@ -15,14 +15,9 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.app.JobIntentService
 import androidx.work.Data
-import androidx.work.WorkManager
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import com.yuanqihudong.task.bean.CustomMessage
 import java.util.*
-import kotlin.collections.ArrayList
 
 //启动方式和普通的service一样
 class MyIntentService : IntentService("MyIntentService") {

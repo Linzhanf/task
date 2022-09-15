@@ -1,4 +1,4 @@
-package com.yuanqihudong.task.glide
+package com.yuanqihudong.common.glide
 
 import android.app.Activity
 import android.net.Uri
