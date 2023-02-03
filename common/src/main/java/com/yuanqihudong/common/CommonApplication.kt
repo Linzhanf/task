@@ -4,7 +4,6 @@ import android.app.Application
 import android.content.Context
 import coil.ImageLoader
 import coil.ImageLoaderFactory
-import com.jeremyliao.liveeventbus.LiveEventBus
 import com.yuanqihudong.task.glide.UnsafeOkHttpClient
 
 open class CommonApplication : Application(), ImageLoaderFactory {
