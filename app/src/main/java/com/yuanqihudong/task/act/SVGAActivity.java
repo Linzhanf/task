@@ -22,11 +22,12 @@ import com.opensource.svgaplayer.SVGAImageView;
 import com.opensource.svgaplayer.SVGAParser;
 import com.opensource.svgaplayer.SVGAVideoEntity;
 import com.yuanqihudong.task.R;
+import com.yuanqihudong.task.base.BaseActivity;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class SVGAActivity extends AppCompatActivity {
+public class SVGAActivity extends BaseActivity {
 
     boolean shortDra = false;
 

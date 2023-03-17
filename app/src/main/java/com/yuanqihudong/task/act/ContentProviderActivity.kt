@@ -21,10 +21,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.yuanqihudong.task.base.BaseActivity
 import com.yuanqihudong.task.viewmodel.ContentProviderViewModel
 import java.lang.StringBuilder
 
-class ContentProviderActivity : AppCompatActivity() {
+class ContentProviderActivity : BaseActivity() {
 
     private val mModel: ContentProviderViewModel by viewModels()
     var res = ""

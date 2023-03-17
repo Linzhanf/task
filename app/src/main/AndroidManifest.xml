@@ -57,6 +57,7 @@
         <activity android:name="com.yuanqihudong.task.act.NewsActivity" />
         <activity android:name="com.yuanqihudong.task.act.NetActivity" />
         <activity android:name="com.yuanqihudong.task.act.SecondActivity" />
+        <activity android:name=".act.LottieActivity" />
 
         <receiver
             android:name="com.yuanqihudong.task.broadcast.StaticsBroadcastReceiver"

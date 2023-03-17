@@ -6,11 +6,12 @@ import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.yuanqihudong.task.base.BaseActivity
 import com.yuanqihudong.task.databinding.ActNewsBinding
 import com.yuanqihudong.task.viewmodel.NewsViewModel
 
 
-class SecondActivity : AppCompatActivity() {
+class SecondActivity : BaseActivity() {
 
     private lateinit var mBinding: ActNewsBinding
     private val mViewModel: NewsViewModel by viewModels()

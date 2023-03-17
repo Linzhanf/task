@@ -12,10 +12,11 @@ import com.lzy.imagepicker.bean.ImageItem
 import com.lzy.imagepicker.ui.ImageGridActivity
 import com.lzy.imagepicker.view.CropImageView
 import com.yuanqihudong.common.glide.GlideImageLoader
+import com.yuanqihudong.task.base.BaseActivity
 import com.yuanqihudong.task.databinding.LayoutPickerBinding
 
 
-class PickerActivity : AppCompatActivity() {
+class PickerActivity : BaseActivity() {
 
     private lateinit var mBinding: LayoutPickerBinding
     private lateinit var picResult: ActivityResultLauncher<Intent>

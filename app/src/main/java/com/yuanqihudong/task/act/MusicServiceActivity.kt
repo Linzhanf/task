@@ -22,9 +22,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.work.*
+import com.yuanqihudong.task.base.BaseActivity
 import com.yuanqihudong.task.service.*
 
-class MusicServiceActivity : AppCompatActivity() {
+class MusicServiceActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

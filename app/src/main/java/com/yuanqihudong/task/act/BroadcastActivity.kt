@@ -11,9 +11,10 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
+import com.yuanqihudong.task.base.BaseActivity
 import com.yuanqihudong.task.broadcast.StaticsBroadcastReceiver
 
-class BroadcastActivity : AppCompatActivity() {
+class BroadcastActivity : BaseActivity() {
 
     private var activeBroadcastReceiver: BroadcastReceiver? = null
 

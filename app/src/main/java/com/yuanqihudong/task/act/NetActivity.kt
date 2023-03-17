@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.afollestad.materialdialogs.MaterialDialog
+import com.yuanqihudong.task.base.BaseActivity
 import com.yuanqihudong.task.databinding.ActNetBinding
 import com.yuanqihudong.task.net.TaskClient
 import com.yuanqihudong.task.net.Urls
@@ -18,7 +19,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
 
-class NetActivity : AppCompatActivity() {
+class NetActivity : BaseActivity() {
 
     private lateinit var mBinding: ActNetBinding
     private var mLoadingDialog: MaterialDialog? = null

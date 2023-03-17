@@ -16,9 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.yuanqihudong.task.R
+import com.yuanqihudong.task.base.BaseActivity
 
 
-class ComposeActivity : AppCompatActivity() {
+class ComposeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

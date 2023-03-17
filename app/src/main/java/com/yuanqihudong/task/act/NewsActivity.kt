@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.yuanqihudong.task.base.BaseActivity
 import com.yuanqihudong.task.databinding.ActNewsBinding
 import com.yuanqihudong.task.viewmodel.AllIntent
 import com.yuanqihudong.task.viewmodel.NewsViewModel
@@ -14,7 +15,7 @@ import com.yuanqihudong.task.viewmodel.TaskState
 import kotlinx.coroutines.*
 
 
-class NewsActivity : AppCompatActivity() {
+class NewsActivity : BaseActivity() {
 
     private lateinit var mBinding: ActNewsBinding
     private val mViewModel: NewsViewModel by viewModels()
