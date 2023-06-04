@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import coil.load
 import com.dreamliner.lib.frame.base.BaseCompatFragment
+import com.scwang.smart.refresh.header.ClassicsHeader
 import com.yuanqihudong.task.R
 import com.yuanqihudong.task.databinding.FraFragmentationBinding
 
@@ -40,6 +41,10 @@ class FragmentationFragment : BaseCompatFragment() {
     override fun initViews(view: View?) {
         mBinding.coilTestIv.load("https://img-blog.csdnimg.cn/20210124002108308.png") {
             placeholder(R.mipmap.ic_launcher_round)
+        }
+        mBinding.swipe.setRefreshHeader(ClassicsHeader(mContext))
+        mBinding.swipe.setOnRefreshListener {
+            mBinding.swipe.finishRefresh(5000)
         }
         /*Glide.with(this).load("https://static.runoob.com/images/demo/demo2.jpg")
             .into(mBinding.coilTestIv)*/

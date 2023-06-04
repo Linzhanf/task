@@ -7,11 +7,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.afollestad.materialdialogs.MaterialDialog
 import com.yuanqihudong.task.base.BaseActivity
+import com.yuanqihudong.task.bean.WanArticleBean
 import com.yuanqihudong.task.databinding.ActNetBinding
+import com.yuanqihudong.task.net.ApiService
 import com.yuanqihudong.task.net.TaskClient
 import com.yuanqihudong.task.net.Urls
 import com.yuanqihudong.task.utils.ToolsUtils
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Call
@@ -32,53 +38,67 @@ class NetActivity : BaseActivity() {
 
         mLoadingDialog = ToolsUtils.loadingDialog(this, "", "加载中...")
 
-        mBinding.text.movementMethod = ScrollingMovementMethod.getInstance()
+        mBinding.content.movementMethod = ScrollingMovementMethod.getInstance()
 
         mBinding.retrofitAsync.setOnClickListener { async() }
         mBinding.retrofitSync.setOnClickListener { sync() }
         mBinding.retrofitSuspendAsync.setOnClickListener { suspendAsync() }
+        mBinding.flowSuspendAsync.setOnClickListener { flowAsync() }
+    }
+
+    private fun flowAsync() {
+        lifecycleScope.launchWhenResumed {
+            flow {
+                emit(ApiService.getArticleSuspendRetrofit())
+            }.onStart {
+                mLoadingDialog?.show()
+            }.onCompletion {
+                mLoadingDialog?.dismiss()
+            }.collect {
+                mBinding.content.text = it.toString()
+            }
+        }
     }
 
     private fun suspendAsync() {
         lifecycleScope.launchWhenResumed {
             kotlin.runCatching {
                 mLoadingDialog?.show()
-                TaskClient.getService(Urls::class.java).getArticleSuspendRetrofit()
+                ApiService.getArticleSuspendRetrofit()
             }.onFailure {
                 mLoadingDialog?.dismiss()
-                mBinding.text.text = it.message
+                mBinding.content.text = it.message
             }.onSuccess {
                 mLoadingDialog?.dismiss()
-                mBinding.text.text = it.toString()
+                mBinding.content.text = it.toString()
             }
         }
     }
 
     private fun async() {
         lifecycleScope.launch {
-            TaskClient.getService(Urls::class.java).getArticleRetrofit()
-                .enqueue(object : Callback<Any> {
-                    override fun onResponse(call: Call<Any>, response: Response<Any>) {
-                        if (response.isSuccessful) {
-                            mBinding.text.text = response.body().toString()
-                        } else {
-                            mBinding.text.text = response.errorBody().toString()
-                        }
+            ApiService.getArticleRetrofit().enqueue(object : Callback<Any> {
+                override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                    if (response.isSuccessful) {
+                        mBinding.content.text = response.body().toString()
+                    } else {
+                        mBinding.content.text = response.errorBody().toString()
                     }
+                }
 
-                    override fun onFailure(call: Call<Any>, t: Throwable) {
-                        mBinding.text.text = t.message
-                    }
-                })
+                override fun onFailure(call: Call<Any>, t: Throwable) {
+                    mBinding.content.text = t.message
+                }
+            })
         }
     }
 
     private fun sync() {
         lifecycleScope.launch(Dispatchers.IO) {
             try {
-                val execute = TaskClient.getService(Urls::class.java).getArticleRetrofit().execute()
+                val execute = ApiService.getArticleRetrofit().execute()
                 withContext(Dispatchers.Main) {
-                    mBinding.text.text = if (execute.isSuccessful) {
+                    mBinding.content.text = if (execute.isSuccessful) {
                         execute.body().toString()
                     } else {
                         execute.errorBody().toString()
@@ -86,7 +106,7 @@ class NetActivity : BaseActivity() {
                 }
             } catch (e: IOException) {
                 withContext(Dispatchers.Main) {
-                    mBinding.text.text = e.message
+                    mBinding.content.text = e.message
                 }
             }
         }

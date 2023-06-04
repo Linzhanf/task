@@ -4,15 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.yuanqihudong.task.view.CircleView
-        android:id="@+id/circle"
+    <com.ss.ugc.android.alpha_player.widget.AlphaVideoGLSurfaceView
+        android:id="@+id/alpha_av"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#997590"
-        android:padding="50dp"
-        app:circle_color="#004400"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.yuanqihudong.task.base.BaseActivity
 import com.yuanqihudong.task.databinding.LayoutCustomViewBinding
+import com.yuanqihudong.task.utils.DragViewUtil
 
 class CustomViewActivity : BaseActivity() {
 
@@ -14,6 +15,7 @@ class CustomViewActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         mBinding = LayoutCustomViewBinding.inflate(LayoutInflater.from(this))
         setContentView(mBinding.root)
+        DragViewUtil.registerDragAction(mBinding.circle)
     }
 
 }

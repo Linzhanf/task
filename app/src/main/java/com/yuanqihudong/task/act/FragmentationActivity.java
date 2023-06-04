@@ -20,7 +20,8 @@ public class FragmentationActivity extends BaseCompatActivity {
 
     @Override
     protected void initViews(@Nullable Bundle savedInstanceState) {
-        loadRootFragment(R.id.main_fl, FragmentationFragment.newInstance());
+        /*if (findFragment())
+        loadRootFragment(R.id.main_fl, FragmentationFragment.newInstance());*/
 //        mHandler = new Handler(Looper.getMainLooper());
 //        mHandler.postDelayed(() -> showToast(FragmentationActivity.class.getSimpleName()), 2000);
     }

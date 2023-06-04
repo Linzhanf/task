@@ -24,6 +24,7 @@ import com.opensource.svgaplayer.SVGAParser;
 import com.opensource.svgaplayer.SVGAVideoEntity;
 import com.yuanqihudong.task.R;
 import com.yuanqihudong.task.base.BaseActivity;
+import com.yuanqihudong.task.net.UrlsKt;
 
 import java.net.MalformedURLException;
 import java.net.URL;

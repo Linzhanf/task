@@ -49,7 +49,7 @@ public class SVGAActivity extends BaseActivity {
         remote("https://pic.hnchumeng.com/Fq9vKt2sR0abg34554wahfSca7q6?imageslim", imageView);
         findViewById(R.id.svga_mic).setOnClickListener(v -> {
             shortDra = !shortDra;
-            remote("https://pic.hnchumeng.com/Fq9vKt2sR0abg34554wahfSca7q6?imageslim", imageView);
+            remote("https://res.hnchumeng.com/peach-sg/2023/05/16/11b931e991a6aa42328eab175c5fa8275c", imageView);
         });
         //local(imageView);
 

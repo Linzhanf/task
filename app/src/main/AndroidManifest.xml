@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.yuanqihudong.task">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SEND_SMS" />
@@ -14,10 +13,10 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Task"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
         <activity
@@ -36,8 +35,8 @@
             android:launchMode="singleTask" />
         <activity
             android:name="com.yuanqihudong.task.act.SVGAActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:launchMode="singleInstancePerTask" />
+            android:launchMode="singleInstancePerTask"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="com.yuanqihudong.task.act.CustomViewActivity"
             android:launchMode="singleInstance" />
@@ -58,6 +57,14 @@
         <activity android:name="com.yuanqihudong.task.act.NetActivity" />
         <activity android:name="com.yuanqihudong.task.act.SecondActivity" />
         <activity android:name=".act.LottieActivity" />
+        <activity android:name=".act.CoroutineActivity" />
+        <activity android:name=".act.NdkActivity" />
+        <activity android:name=".act.WebViewActivity" />
+        <activity android:name=".act.CoroutineTestActivity" />
+        <activity android:name="com.yuanqihudong.task.act.YYMP4Activity" />
+        <activity
+            android:name="com.yuanqihudong.task.act.ViewPagerActivity"
+            android:theme="@style/MyMaterialTheme" />
 
         <receiver
             android:name="com.yuanqihudong.task.broadcast.StaticsBroadcastReceiver"

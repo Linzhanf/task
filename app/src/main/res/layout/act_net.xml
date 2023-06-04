@@ -23,8 +23,15 @@
         android:layout_height="wrap_content"
         android:text="retrofit suspend async" />
 
+
+    <Button
+        android:id="@+id/flow_suspend_async"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="flow suspend async" />
+
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

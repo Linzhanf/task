@@ -24,7 +24,7 @@ class NewsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActNewsBinding.inflate(LayoutInflater.from(this))
         setContentView(mBinding.root)
-        mBinding.text.movementMethod = ScrollingMovementMethod.getInstance()
+        mBinding.content.movementMethod = ScrollingMovementMethod.getInstance()
         mBinding.loadBtn.setOnClickListener {
             doLaunch {
                 mViewModel.allIntent.send(AllIntent.GetArticle)
@@ -34,11 +34,11 @@ class NewsActivity : BaseActivity() {
         lifecycleScope.launch(context = Dispatchers.Main) {
             mViewModel.state.collect {
                 when (it) {
-                    is TaskState.BeforeLoad -> mBinding.text addText "before load"
-                    is TaskState.DoLoad -> mBinding.text addText "do load"
-                    is TaskState.GetArticle -> mBinding.text addText it.content
-                    is TaskState.AfterLoad -> mBinding.text addText "after load"
-                    is TaskState.ErrorData -> mBinding.text addText it.msg
+                    is TaskState.BeforeLoad -> mBinding.content addText "before load"
+                    is TaskState.DoLoad -> mBinding.content addText "do load"
+                    is TaskState.GetArticle -> mBinding.content addText it.content
+                    is TaskState.AfterLoad -> mBinding.content addText "after load"
+                    is TaskState.ErrorData -> mBinding.content addText it.msg
                 }
             }
         }

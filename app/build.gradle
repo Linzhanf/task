@@ -9,13 +9,28 @@ android {
 
     defaultConfig {
         applicationId "com.yuanqihudong.task"
-        minSdk 21
+        minSdk 22
         targetSdk 33
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
     }
+
+    // 指定 CMake 文件路径和版本
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+    ndkVersion '21.3.6528147'
 
     buildTypes {
         release {
@@ -32,6 +47,7 @@ android {
     buildFeatures {
         compose true
         viewBinding true
+        dataBinding true
     }
 
     composeOptions {
@@ -41,6 +57,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    sourceSets {
+        main {
+            //这里的libs需要替换成你放置so库的目录，比如jniLibs
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    namespace 'com.yuanqihudong.task'
 }
 
 dependencies {

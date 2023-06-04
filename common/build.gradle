@@ -8,7 +8,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        minSdk 21
+        minSdk 22
         targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -45,6 +45,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    namespace 'com.yuanqihudong.common'
 }
 
 dependencies {
@@ -105,4 +106,16 @@ dependencies {
 
     api 'com.airbnb.android:lottie:3.7.0'
 
+    compileOnly "org.projectlombok:lombok:1.18.6"
+    annotationProcessor "org.projectlombok:lombok:1.18.6"
+
+    api 'com.github.yylive.YYEVA-Android:yyeva:1.0.17'
+    //api 'com.github.yylive.YYEVA-Android:yyeva:2.0.0-beta'
+
+    api 'com.github.bytedance:AlphaPlayer:1.0.4'
+
+    api 'io.github.scwang90:refresh-layout-kernel:2.0.5'      //核心必须依赖
+    api 'io.github.scwang90:refresh-header-classics:2.0.5'    //经典刷新头
+
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.8'
 }

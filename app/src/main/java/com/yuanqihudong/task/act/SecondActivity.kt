@@ -5,7 +5,6 @@ import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import com.yuanqihudong.task.base.BaseActivity
 import com.yuanqihudong.task.databinding.ActNewsBinding
 import com.yuanqihudong.task.viewmodel.NewsViewModel
@@ -20,7 +19,7 @@ class SecondActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActNewsBinding.inflate(LayoutInflater.from(this))
         setContentView(mBinding.root)
-        mBinding.text.movementMethod = ScrollingMovementMethod.getInstance()
+        mBinding.content.movementMethod = ScrollingMovementMethod.getInstance()
         mBinding.loadBtn.setOnClickListener {
 
         }
