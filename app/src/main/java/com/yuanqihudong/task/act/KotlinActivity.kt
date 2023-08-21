@@ -3,6 +3,7 @@ package com.yuanqihudong.task.act
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button
@@ -74,6 +75,16 @@ class KotlinActivity : BaseActivity() {
             }
             Button(onClick = { operateList() }) {
                 Text(text = "list about")
+            }
+            Button(onClick = {
+                thread {
+                    Thread.sleep(5000)
+                    runOnUiThread {
+                        Toast.makeText(this@KotlinActivity, "1", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }) {
+                Text(text = "leak")
             }
         }
     }

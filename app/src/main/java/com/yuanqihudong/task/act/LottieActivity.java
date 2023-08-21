@@ -1,33 +1,12 @@
 package com.yuanqihudong.task.act;
 
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-
 import android.animation.ValueAnimator;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.RotateAnimation;
-import android.view.animation.ScaleAnimation;
-import android.view.animation.TranslateAnimation;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.airbnb.lottie.LottieDrawable;
 import com.gyf.immersionbar.ImmersionBar;
-import com.opensource.svgaplayer.SVGADrawable;
-import com.opensource.svgaplayer.SVGAImageView;
-import com.opensource.svgaplayer.SVGAParser;
-import com.opensource.svgaplayer.SVGAVideoEntity;
 import com.yuanqihudong.task.R;
 import com.yuanqihudong.task.base.BaseActivity;
-import com.yuanqihudong.task.net.UrlsKt;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class LottieActivity extends BaseActivity {
 

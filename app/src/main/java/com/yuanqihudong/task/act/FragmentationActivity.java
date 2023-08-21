@@ -10,12 +10,8 @@ import androidx.annotation.Nullable;
 import com.dreamliner.lib.frame.base.BaseCompatActivity;
 import com.yuanqihudong.task.R;
 import com.yuanqihudong.task.fra.FragmentationFragment;
-import com.yuanqihudong.task.utils.ELog;
 import com.yuanqihudong.task.utils.SingleInstanceTest;
 import com.yuanqihudong.task.utils.UtilsKt;
-
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
 
 public class FragmentationActivity extends BaseCompatActivity {
 

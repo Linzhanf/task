@@ -45,8 +45,8 @@ class ActiveActivity : BaseActivity() {
     private fun Greeting() {
         Column {
             method(str = "第一种") {
-                val intent = Intent(this@ActiveActivity, PickerActivity::class.java)
-                startActivity(intent)
+                /*val intent = Intent(this@ActiveActivity, PickerActivity::class.java)
+                startActivity(intent)*/
             }
             method(str = "第二种") {
                 val intent = with(Intent()) {

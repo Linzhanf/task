@@ -1,13 +1,9 @@
 package com.yuanqihudong.task.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.yuanqihudong.task.bean.WanArticleBean
-import com.yuanqihudong.task.net.ApiService
+import com.yuanqihudong.task.net.retrofit.ApiService
 import com.yuanqihudong.task.net.LoadState
-import com.yuanqihudong.task.net.TaskClient
-import com.yuanqihudong.task.net.Urls
-import kotlinx.coroutines.delay
 
 class CoroutineVm : BaseViewModel() {
 
@@ -18,9 +14,9 @@ class CoroutineVm : BaseViewModel() {
 
     fun syncRequest() = run {
         launch({
-            articleResult.value = processData(ApiService.getArticleNew())
+            articleResult.postValue(processData(ApiService.getArticleNew()))
         }, {
-            articleLoadState.value = LoadState.Fail(it.message ?: "加载失败", 0)
+            articleLoadState.postValue(LoadState.Fail(it.message ?: "加载失败", 0))
         })
     }
 

@@ -22,9 +22,22 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.ProcessLifecycleOwner
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import com.yuanqihudong.task.act.*
 import com.yuanqihudong.task.bean.CustomMessage
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import kotlin.concurrent.thread
 import kotlin.coroutines.suspendCoroutine
@@ -33,6 +46,7 @@ import kotlin.coroutines.suspendCoroutine
 class InitActivity : AppCompatActivity() {
 
     private val list = listOf(
+        CustomMessage(SVGAActivity::class.simpleName, SVGAActivity::class),
         CustomMessage(ViewModelActivity::class.simpleName, ViewModelActivity::class),
         CustomMessage(LiveDataActivity::class.simpleName, LiveDataActivity::class),
         CustomMessage(KotlinActivity::class.simpleName, KotlinActivity::class),
@@ -45,9 +59,7 @@ class InitActivity : AppCompatActivity() {
         CustomMessage(CoroutineActivity::class.simpleName, CoroutineActivity::class),
         CustomMessage(ComposeActivity::class.simpleName, ComposeActivity::class),
         CustomMessage(CustomViewActivity::class.simpleName, CustomViewActivity::class),
-        CustomMessage(SVGAActivity::class.simpleName, SVGAActivity::class),
         CustomMessage(LottieActivity::class.simpleName, LottieActivity::class),
-        CustomMessage(PickerActivity::class.simpleName, PickerActivity::class),
         CustomMessage(BroadcastActivity::class.simpleName, BroadcastActivity::class),
         CustomMessage(MusicServiceActivity::class.simpleName, MusicServiceActivity::class),
         CustomMessage(ContentProviderActivity::class.simpleName, ContentProviderActivity::class),
@@ -62,6 +74,7 @@ class InitActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent { Greet() }
+
     }
 
     override fun onNewIntent(intent: Intent?) {
@@ -80,7 +93,7 @@ class InitActivity : AppCompatActivity() {
                 Text(
                     list[index].name ?: "",
                     textAlign = TextAlign.Center,
-                    color = Color.Black,
+                    color = Color.Blue,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(10.dp)

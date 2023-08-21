@@ -5,14 +5,22 @@ import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.trello.rxlifecycle4.android.ActivityEvent
 import com.yuanqihudong.task.base.BaseActivity
+import com.yuanqihudong.task.bean.WanArticleBean.DataDTO
 import com.yuanqihudong.task.databinding.ActNewsBinding
+import com.yuanqihudong.task.net.retrofit.TaskClient
+import com.yuanqihudong.task.net.retrofit.Urls
+import com.yuanqihudong.task.net.rx.CustomObserver
+import com.yuanqihudong.task.net.rx.RxUtil.handleResultOnMain
 import com.yuanqihudong.task.viewmodel.AllIntent
 import com.yuanqihudong.task.viewmodel.NewsViewModel
 import com.yuanqihudong.task.viewmodel.TaskState
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class NewsActivity : BaseActivity() {
@@ -42,6 +50,19 @@ class NewsActivity : BaseActivity() {
                 }
             }
         }
+
+        TaskClient.getService(Urls::class.java).getArticleRx()
+            .compose(handleResultOnMain())
+            .compose(bindUntilEvent(ActivityEvent.DESTROY))
+            .subscribe(object : CustomObserver<DataDTO>() {
+                override fun onResponse(t: DataDTO) {
+                    mBinding.content addText t.toString()
+                }
+
+                override fun onError(errorCode: Int, errorMsg: String?) {
+                    mBinding.content addText "$errorCode:$errorMsg"
+                }
+            })
     }
 
     private fun doLaunch(method: suspend CoroutineScope.() -> Unit) {

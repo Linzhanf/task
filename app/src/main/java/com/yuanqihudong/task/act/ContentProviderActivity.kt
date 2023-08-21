@@ -38,6 +38,7 @@ class ContentProviderActivity : BaseActivity() {
         setContent {
             clickBtn()
         }
+        mModel.closeRun()
     }
 
     @Preview

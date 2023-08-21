@@ -25,3 +25,4 @@ dependencyResolutionManagement {
 rootProject.name = "Task"
 include ':app'
 include ':common'
+include ':svga_player'

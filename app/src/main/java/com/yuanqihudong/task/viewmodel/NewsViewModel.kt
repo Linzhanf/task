@@ -1,8 +1,8 @@
 package com.yuanqihudong.task.viewmodel
 
 import androidx.lifecycle.viewModelScope
-import com.yuanqihudong.task.net.TaskClient
-import com.yuanqihudong.task.net.Urls
+import com.yuanqihudong.task.net.retrofit.TaskClient
+import com.yuanqihudong.task.net.retrofit.Urls
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.Channel.Factory.UNLIMITED
@@ -41,7 +41,9 @@ class NewsViewModel : BaseViewModel() {
     private suspend fun syncRequest() = run {
         try {
             val execute = withContext(Dispatchers.IO) {
-                TaskClient.getService(Urls::class.java).getArticle().execute()
+                val map = HashMap<String, String>()
+                map["test"] = "123"
+                TaskClient.getService(Urls::class.java).getArticle(map).execute()
             }
             withContext(Dispatchers.Main) {
                 if (execute.isSuccessful) {
@@ -54,6 +56,7 @@ class NewsViewModel : BaseViewModel() {
             TaskState.ErrorData(e.message ?: "")
         }
     }
+
 
     private fun commentLoading(intent: AllIntent) {
         viewModelScope.launch(context = (errorContext<Any> {
@@ -69,3 +72,4 @@ class NewsViewModel : BaseViewModel() {
         }
     }
 }
+

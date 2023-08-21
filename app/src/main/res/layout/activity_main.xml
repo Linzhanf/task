@@ -12,7 +12,10 @@
         android:id="@+id/svga_mic"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:autoPlay="true" />
+        android:layout_alignParentBottom="true"
+        app:autoPlay="true"
+        app:clearsAfterStop="true"
+        app:loopCount="1" />
 
     <!--<EditText
         android:id="@+id/editText"
