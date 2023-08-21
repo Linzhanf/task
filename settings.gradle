@@ -3,6 +3,7 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
         google()
+        maven { url 'https://jitpack.io' }
         maven {
             allowInsecureProtocol = true
             url "http://120.79.114.94:9081/repository/android-public/"
@@ -14,6 +15,7 @@ dependencyResolutionManagement {
     repositories {
         mavenCentral()
         google()
+        maven { url 'https://jitpack.io' }
         maven {
             allowInsecureProtocol = true
             url "http://120.79.114.94:9081/repository/android-public/"

@@ -16,11 +16,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.bumptech.glide.Glide;
 import com.gyf.immersionbar.ImmersionBar;
 import com.opensource.svgaplayer.SVGADrawable;
 import com.opensource.svgaplayer.SVGAImageView;
 import com.opensource.svgaplayer.SVGAParser;
 import com.opensource.svgaplayer.SVGAVideoEntity;
+import com.opensource.svgaplayer.glideplugin.SVGAModule;
 import com.yuanqihudong.task.R;
 import com.yuanqihudong.task.base.BaseActivity;
 
@@ -46,11 +48,12 @@ public class SVGAActivity extends BaseActivity {
 
 
         SVGAImageView imageView = findViewById(R.id.svga_mic);
-        remote("https://pic.hnchumeng.com/Fq9vKt2sR0abg34554wahfSca7q6?imageslim", imageView);
+        /*remote("https://pic.hnchumeng.com/Fq9vKt2sR0abg34554wahfSca7q6?imageslim", imageView);
         findViewById(R.id.svga_mic).setOnClickListener(v -> {
             shortDra = !shortDra;
             remote("https://res.hnchumeng.com/peach-sg/2023/05/16/11b931e991a6aa42328eab175c5fa8275c", imageView);
-        });
+        });*/
+        Glide.with(imageView.getContext()).load("https://github.com/yyued/SVGA-Samples/blob/master/kingset.svga?raw=true").into(imageView);
         //local(imageView);
 
         //https://pic.hnchumeng.com/Fhtnm_1_dA5SvUnZkaoWnnI0X5lK?imageslim width=750.0height=1500.0

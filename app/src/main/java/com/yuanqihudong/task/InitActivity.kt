@@ -28,24 +28,26 @@ import com.yuanqihudong.task.bean.CustomMessage
 class InitActivity : AppCompatActivity() {
 
     private val list = listOf(
-        CustomMessage(ViewPagerActivity::class.simpleName, ViewPagerActivity::class),
-        CustomMessage(YYMP4Activity::class.simpleName, YYMP4Activity::class),
-        CustomMessage(CoroutineTestActivity::class.simpleName, CoroutineTestActivity::class),
-        CustomMessage(WebViewActivity::class.simpleName, WebViewActivity::class),
-        CustomMessage(NdkActivity::class.simpleName, NdkActivity::class),
-        CustomMessage(CoroutineActivity::class.simpleName, CoroutineActivity::class),
-        CustomMessage(ComposeActivity::class.simpleName, ComposeActivity::class),
-        CustomMessage(CustomViewActivity::class.simpleName, CustomViewActivity::class),
-        CustomMessage(SVGAActivity::class.simpleName, SVGAActivity::class),
-        CustomMessage(LottieActivity::class.simpleName, LottieActivity::class),
-        CustomMessage(PickerActivity::class.simpleName, PickerActivity::class),
-        CustomMessage(BroadcastActivity::class.simpleName, BroadcastActivity::class),
-        CustomMessage(MusicServiceActivity::class.simpleName, MusicServiceActivity::class),
-        CustomMessage(ContentProviderActivity::class.simpleName, ContentProviderActivity::class),
-        CustomMessage(ActiveActivity::class.simpleName, ActiveActivity::class),
-        CustomMessage(FragmentationActivity::class.simpleName, FragmentationActivity::class),
-        CustomMessage(NewsActivity::class.simpleName, NewsActivity::class),
-        CustomMessage(NetActivity::class.simpleName, NetActivity::class)
+            CustomMessage(KotlinActivity::class.simpleName, KotlinActivity::class),
+            CustomMessage(DownloadActivity::class.simpleName, DownloadActivity::class),
+            CustomMessage(ViewPagerActivity::class.simpleName, ViewPagerActivity::class),
+            CustomMessage(YYMP4Activity::class.simpleName, YYMP4Activity::class),
+            CustomMessage(CoroutineTestActivity::class.simpleName, CoroutineTestActivity::class),
+            CustomMessage(WebViewActivity::class.simpleName, WebViewActivity::class),
+            CustomMessage(NdkActivity::class.simpleName, NdkActivity::class),
+            CustomMessage(CoroutineActivity::class.simpleName, CoroutineActivity::class),
+            CustomMessage(ComposeActivity::class.simpleName, ComposeActivity::class),
+            CustomMessage(CustomViewActivity::class.simpleName, CustomViewActivity::class),
+            CustomMessage(SVGAActivity::class.simpleName, SVGAActivity::class),
+            CustomMessage(LottieActivity::class.simpleName, LottieActivity::class),
+            CustomMessage(PickerActivity::class.simpleName, PickerActivity::class),
+            CustomMessage(BroadcastActivity::class.simpleName, BroadcastActivity::class),
+            CustomMessage(MusicServiceActivity::class.simpleName, MusicServiceActivity::class),
+            CustomMessage(ContentProviderActivity::class.simpleName, ContentProviderActivity::class),
+            CustomMessage(ActiveActivity::class.simpleName, ActiveActivity::class),
+            CustomMessage(FragmentationActivity::class.simpleName, FragmentationActivity::class),
+            CustomMessage(NewsActivity::class.simpleName, NewsActivity::class),
+            CustomMessage(NetActivity::class.simpleName, NetActivity::class)
     )
 
     private var message: CustomMessage? = null
@@ -64,27 +66,27 @@ class InitActivity : AppCompatActivity() {
     @Composable
     fun Greet() {
         LazyColumn(
-            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-            modifier = Modifier.fillMaxWidth()
+                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+                modifier = Modifier.fillMaxWidth()
         ) {
             items(list.size) { index ->
                 Text(
-                    list[index].name ?: "",
-                    textAlign = TextAlign.Center,
-                    color = Color.Black,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(10.dp)
-                        .clickable {
-                            startActivity(
-                                Intent(
-                                    this@InitActivity,
-                                    list[index].clazz.java
-                                )
-                            )
-                        }
-                        .background(Color.LightGray, CircleShape)
-                        .padding(10.dp))
+                        list[index].name ?: "",
+                        textAlign = TextAlign.Center,
+                        color = Color.Black,
+                        modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(10.dp)
+                                .clickable {
+                                    startActivity(
+                                            Intent(
+                                                    this@InitActivity,
+                                                    list[index].clazz.java
+                                            )
+                                    )
+                                }
+                                .background(Color.LightGray, CircleShape)
+                                .padding(10.dp))
             }
         }
     }

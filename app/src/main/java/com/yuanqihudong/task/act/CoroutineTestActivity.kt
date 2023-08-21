@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
+import androidx.lifecycle.lifecycleScope
 import com.yuanqihudong.task.base.BaseActivity
 import com.yuanqihudong.task.databinding.ActCoroutineTestBinding
 import kotlinx.coroutines.*
@@ -26,8 +27,8 @@ class CoroutineTestActivity : BaseActivity() {
         mBinding = ActCoroutineTestBinding.inflate(LayoutInflater.from(this))
         setContentView(mBinding.root)
 
-        //init()
-        lock()
+        init()
+        //lock()
     }
 
     private fun init() {
@@ -42,15 +43,16 @@ class CoroutineTestActivity : BaseActivity() {
             }
         }
         // 线程 CoroutineScope
-        CoroutineScope(Dispatchers.Main).launch {
-            val message = withContext(Dispatchers.IO) {
+        CoroutineScope(Main).launch {
+            var message = withContext(IO) {
                 delay(2000)
                 Thread.currentThread().name
             }
+            message += waitThread()
             mBinding.content.text = mBinding.content.text.toString().plus("threadName2:$message")
         }
         // 线程池1
-        val service = Executors.newFixedThreadPool(10)
+        /*val service = Executors.newFixedThreadPool(10)
         repeat(100000) {
             service.execute { Thread.sleep(100) }
         }
@@ -64,8 +66,13 @@ class CoroutineTestActivity : BaseActivity() {
                     delay(100)
                 }
             }
-        }
+        }*/
 
+    }
+
+    private suspend fun waitThread(): String {
+        delay(3000)
+        return Thread.currentThread().name
     }
 
     private fun lock() {
