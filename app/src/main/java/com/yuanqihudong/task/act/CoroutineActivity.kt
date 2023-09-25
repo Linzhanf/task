@@ -13,6 +13,7 @@ import com.yuanqihudong.task.base.BaseActivity
 import com.yuanqihudong.task.net.LoadState
 import com.yuanqihudong.task.utils.ToolsUtils
 import com.yuanqihudong.task.viewmodel.CoroutineVm
+import kotlinx.coroutines.runBlocking
 
 class CoroutineActivity : BaseActivity() {
 
@@ -41,21 +42,20 @@ class CoroutineActivity : BaseActivity() {
                 is LoadState.Loading -> mLoadingDialog?.show()
                 is LoadState.Success -> mLoadingDialog?.dismiss()
                 is LoadState.Fail -> {
+                    mLoadingDialog?.dismiss()
                     if (it.type == 1) {
-                        mLoadingDialog?.dismiss()
                         toast("this is a abnormal type")
                     } else {
-                        mLoadingDialog?.dismiss()
                         toast(it.message)
                     }
                 }
             }
         }
         mVm.articleResult.observe(this) {
-            textSb = it.toString()
+
         }
         mVm.articleResultWithResult.observe(this) {
-            textSb += it.toString()
+
         }
         mVm.syncRequest()
         mVm.syncRequestWithResult()

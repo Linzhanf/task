@@ -1,7 +1,9 @@
 package com.yuanqihudong.task.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.yuanqihudong.task.bean.WanArticleBean
+import com.yuanqihudong.task.net.ApiService
 import com.yuanqihudong.task.net.LoadState
 import com.yuanqihudong.task.net.TaskClient
 import com.yuanqihudong.task.net.Urls
@@ -16,8 +18,7 @@ class CoroutineVm : BaseViewModel() {
 
     fun syncRequest() = run {
         launch({
-            delay(3000)
-            articleResult.value = processData(TaskClient.getService(Urls::class.java).getArticleNew())
+            articleResult.value = processData(ApiService.getArticleNew())
         }, {
             articleLoadState.value = LoadState.Fail(it.message ?: "加载失败", 0)
         })
@@ -25,7 +26,7 @@ class CoroutineVm : BaseViewModel() {
 
     fun syncRequestWithResult() = run {
         launch({
-            articleResultWithResult.value = processData(TaskClient.getService(Urls::class.java).getArticleNew2())
+            articleResultWithResult.value = processData(ApiService.getArticleNew2())
         }, {
             articleLoadState.value = LoadState.Fail(it.message ?: "加载失败", 1)
         })

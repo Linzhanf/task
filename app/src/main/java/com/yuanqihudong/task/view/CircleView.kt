@@ -76,7 +76,7 @@ class CircleView : View {
 
     private val path = Path()
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
         val withPaddingWith = width - paddingRight - paddingLeft

@@ -72,7 +72,7 @@ object MyLiveDataBus {
         override fun onChanged(t: T) {
             if (mLastVersion >= stickyLiveData.mLiveDataVersion) {
                 if (sticky && stickyLiveData.mStickyData != null) {
-                    observer.onChanged(stickyLiveData.mStickyData)
+                    observer.onChanged(stickyLiveData.mStickyData!!)
                 }
                 return
             }

@@ -23,6 +23,7 @@ class SecondActivity : BaseActivity() {
         mBinding.loadBtn.setOnClickListener {
 
         }
+
     }
 
     infix fun TextView.addText(text: String) {

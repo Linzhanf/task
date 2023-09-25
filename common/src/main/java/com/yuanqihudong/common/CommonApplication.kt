@@ -23,6 +23,8 @@ open class CommonApplication : Application(), ImageLoaderFactory {
         super.onCreate()
         context = this
         setToast()
+        val debug = if (BuildConfig.DEBUG) "true" else "false"
+        Toast.makeText(this, debug, Toast.LENGTH_LONG).show()
     }
 
     @SuppressLint("SoonBlockedPrivateApi")

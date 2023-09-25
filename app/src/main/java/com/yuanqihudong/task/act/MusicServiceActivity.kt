@@ -72,11 +72,11 @@ class MusicServiceActivity : BaseActivity() {
         when (op) {
             1 -> {
                 if (mBinderService == null) {
-                    bindService(myIntent?.apply {
+                    myIntent?.apply {
                         putExtras(Bundle().apply {
                             putInt("op", op)
                         })
-                    }, mServiceConnection, BIND_AUTO_CREATE)
+                    }?.let { bindService(it, mServiceConnection, BIND_AUTO_CREATE) }
                 } else {
                     mBinderService?.play()
                 }

@@ -11,13 +11,20 @@ import androidx.compose.runtime.Composable
 import com.yuanqihudong.task.base.BaseActivity
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import java.net.URL
+import kotlin.concurrent.thread
+import kotlin.coroutines.Continuation
 import kotlin.coroutines.CoroutineContext
+import kotlin.coroutines.EmptyCoroutineContext
+import kotlin.coroutines.createCoroutine
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
 class KotlinActivity : BaseActivity() {
 
@@ -89,6 +96,33 @@ class KotlinActivity : BaseActivity() {
         for (i in theList.indices) {
             Log.i("operateList", "operateList: $i ,${theList[i].name}")
         }
+        launchFish {
+            Log.i(KotlinActivity::class.simpleName, "before suspend")
+            val studentInfo = getStuInfo3()
+            Log.i(KotlinActivity::class.simpleName, "after suspend student name:${studentInfo}")
+        }
+    }
+
+    private fun <T> launchFish(block: suspend () -> T) {
+        var coroutine = block.createCoroutine(object : Continuation<T> {
+            override val context: CoroutineContext get() = EmptyCoroutineContext
+            override fun resumeWith(result: Result<T>) {
+                Log.i(KotlinActivity::class.simpleName, "result$result")
+            }
+        })
+        coroutine.resume(Unit)
+    }
+
+    private suspend fun getStuInfo3(): String {
+        return suspendCoroutine {
+            thread {
+                Thread.sleep(3000)
+                val name = "getStuInfo3: yes"
+                Log.i(KotlinActivity::class.simpleName, "resume coroutine")
+                it.resumeWith(Result.success(name))
+            }
+            Log.i(KotlinActivity::class.simpleName, "suspendCoroutine end")
+        }
     }
 
     private fun runBlockingAbout() {
@@ -96,7 +130,10 @@ class KotlinActivity : BaseActivity() {
             val theLaunch = launch(context = Dispatchers.IO) {
 
                 repeat(1000) {
-                    Log.i("kotlin", "runBlockingAbout launch thread = ${Thread.currentThread().name}")
+                    Log.i(
+                        "kotlin",
+                        "runBlockingAbout launch thread = ${Thread.currentThread().name}"
+                    )
                     Log.i("kotlin", "runBlockingAbout: $it")
                     delay(500L)
                 }
@@ -131,9 +168,9 @@ class KotlinActivity : BaseActivity() {
 
     private fun other(user: User) {
         user.takeIf { it.name.isNotEmpty() }?.also { println("姓名为${it.name}") }
-                ?: println("姓名为空")
+            ?: println("姓名为空")
         user.takeUnless { it.name.isNotEmpty() }?.also { println("姓名为空") }
-                ?: println("姓名${user.name}")
+            ?: println("姓名${user.name}")
         repeat(5) {
             println(user.name)
             println(it)

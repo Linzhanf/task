@@ -27,7 +27,7 @@ class CoroutineTestActivity : BaseActivity() {
         mBinding = ActCoroutineTestBinding.inflate(LayoutInflater.from(this))
         setContentView(mBinding.root)
 
-        init()
+        //init()
         //lock()
     }
 
