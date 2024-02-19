@@ -1,6 +1,5 @@
 package com.yuanqihudong.task.net.rx
 
-import com.dreamliner.lib.util.ValidateUtil
 import com.yuanqihudong.task.net.bean.BusinessException
 import com.yuanqihudong.task.net.bean.ServiceResult
 import com.yuanqihudong.task.utils.GsonUtil
@@ -41,10 +40,8 @@ object RxUtil {
                     jsonObject.get(key)?.let {
                         this[key] = it.toString().toRequestBody("text/plain".toMediaTypeOrNull())
                     }
-                    if (!ValidateUtil.isValidate(this)) {
-                        val uuid = UUID.randomUUID().toString()
-                        this[uuid] = uuid.toRequestBody("text/plain".toMediaTypeOrNull())
-                    }
+                    val uuid = UUID.randomUUID().toString()
+                    this[uuid] = uuid.toRequestBody("text/plain".toMediaTypeOrNull())
                 }
             }
         }
@@ -81,13 +78,13 @@ object RxUtil {
         }
     }
 
-    fun <T: Any> handleResultOnMain() = run {
+    fun <T : Any> handleResultOnMain() = run {
         ObservableTransformer<ServiceResult<T>, T> {
             it.compose(handleResultOnIO()).observeOn(AndroidSchedulers.mainThread())
         }
     }
 
-    fun <T: Any> ioToMain(): ObservableTransformer<T, T> {
+    fun <T : Any> ioToMain(): ObservableTransformer<T, T> {
         return ObservableTransformer {
             it.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
         }

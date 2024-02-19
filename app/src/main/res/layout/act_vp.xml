@@ -120,7 +120,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/default_user_bg_deep_nor"
+                android:background="@color/default_theme_color"
                 android:padding="12dp"
                 android:text="tabLayout"
                 android:textColor="@color/white"

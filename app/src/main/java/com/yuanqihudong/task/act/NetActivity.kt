@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import androidx.lifecycle.lifecycleScope
-import com.afollestad.materialdialogs.MaterialDialog
 import com.yuanqihudong.task.base.BaseActivity
 import com.yuanqihudong.task.databinding.ActNetBinding
 import com.yuanqihudong.task.net.retrofit.ApiService
-import com.yuanqihudong.task.utils.ToolsUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onCompletion
@@ -23,7 +21,6 @@ import java.io.IOException
 class NetActivity : BaseActivity() {
 
     private lateinit var mBinding: ActNetBinding
-    private var mLoadingDialog: MaterialDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +28,6 @@ class NetActivity : BaseActivity() {
         mBinding = ActNetBinding.inflate(LayoutInflater.from(this))
         setContentView(mBinding.root)
 
-        mLoadingDialog = ToolsUtils.loadingDialog(this, "", "加载中...")
 
         mBinding.content.movementMethod = ScrollingMovementMethod.getInstance()
 
@@ -46,9 +42,9 @@ class NetActivity : BaseActivity() {
             flow {
                 emit(ApiService.getArticleSuspendRetrofit())
             }.onStart {
-                mLoadingDialog?.show()
+//                mLoadingDialog?.show()
             }.onCompletion {
-                mLoadingDialog?.dismiss()
+//                mLoadingDialog?.dismiss()
             }.collect {
                 mBinding.content.text = it.toString()
             }
@@ -58,13 +54,13 @@ class NetActivity : BaseActivity() {
     private fun suspendAsync() {
         lifecycleScope.launchWhenResumed {
             kotlin.runCatching {
-                mLoadingDialog?.show()
+//                mLoadingDialog?.show()
                 ApiService.getArticleSuspendRetrofit()
             }.onFailure {
-                mLoadingDialog?.dismiss()
+//                mLoadingDialog?.dismiss()
                 mBinding.content.text = it.message
             }.onSuccess {
-                mLoadingDialog?.dismiss()
+//                mLoadingDialog?.dismiss()
                 mBinding.content.text = it.toString()
             }
         }
