@@ -46,6 +46,7 @@ import kotlin.coroutines.suspendCoroutine
 class InitActivity : AppCompatActivity() {
 
     private val list = listOf(
+        CustomMessage(GalleryActivity::class.simpleName, GalleryActivity::class),
         CustomMessage(SVGAActivity::class.simpleName, SVGAActivity::class),
         CustomMessage(ViewModelActivity::class.simpleName, ViewModelActivity::class),
         CustomMessage(LiveDataActivity::class.simpleName, LiveDataActivity::class),

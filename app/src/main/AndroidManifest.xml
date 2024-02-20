@@ -66,6 +66,7 @@
         <activity android:name="com.yuanqihudong.task.act.KotlinActivity" />
         <activity android:name="com.yuanqihudong.task.act.LiveDataActivity" />
         <activity android:name="com.yuanqihudong.task.act.ViewModelActivity" />
+        <activity android:name="com.yuanqihudong.task.act.GalleryActivity" />
 
         <receiver
             android:name="com.yuanqihudong.task.broadcast.StaticsBroadcastReceiver"
