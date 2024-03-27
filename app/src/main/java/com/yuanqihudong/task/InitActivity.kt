@@ -1,11 +1,7 @@
 package com.yuanqihudong.task
 
 import android.content.Intent
-import android.graphics.SurfaceTexture
 import android.os.Bundle
-import android.util.Log
-import android.view.Surface
-import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
@@ -22,30 +18,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ProcessLifecycleOwner
-import androidx.lifecycle.flowWithLifecycle
-import androidx.lifecycle.lifecycleScope
 import com.yuanqihudong.task.act.*
+import com.yuanqihudong.task.act.gallery.GalleryVpActivity
 import com.yuanqihudong.task.bean.CustomMessage
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.channelFlow
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.receiveAsFlow
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
-import kotlin.concurrent.thread
-import kotlin.coroutines.suspendCoroutine
 
 
 class InitActivity : AppCompatActivity() {
 
     private val list = listOf(
+        CustomMessage(GalleryVpActivity::class.simpleName, GalleryVpActivity::class),
         CustomMessage(GalleryActivity::class.simpleName, GalleryActivity::class),
         CustomMessage(SVGAActivity::class.simpleName, SVGAActivity::class),
         CustomMessage(ViewModelActivity::class.simpleName, ViewModelActivity::class),

@@ -18,10 +18,10 @@ class CustomViewActivity : BaseActivity() {
         mBinding = LayoutCustomViewBinding.inflate(LayoutInflater.from(this))
         setContentView(mBinding.root)
 
-        RotateGestureDetector(mBinding.circle).setCycle(true)
+        /*RotateGestureDetector(mBinding.circle).setCycle(true)
             .setStartAngle(0)
             .setEndAngle(360)
-            .setOnRotateListener { angle, _, _ -> mBinding.circle.rotation = angle.toFloat() }
+            .setOnRotateListener { angle, _, _ -> mBinding.circle.rotation = angle.toFloat() }*/
     }
 
 }
